@@ -15,7 +15,7 @@ type InputAttr = {
 	multitple?: boolean;
 	minRows?: number;
 	maxRows?: number;
-	onChange?: (e: string) => void;
+	onChange?: (e: string | Date) => void;
 	error?: string;
 	dateValue?: Date | null;
 	value?: string;

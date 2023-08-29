@@ -7,7 +7,7 @@ export const useTodo = () => {
 	const [error, setError] = useState<CreatTodoPayloadAttr>();
 	const { isCreatingTodo, isDeletingTodo, isLoading, todos, todo } = useAppSelector((store) => store.todo);
 	const dispatch = useAppDispatch();
-	const handleChange = (name: string, val: string) => {
+	const handleChange = (name: string, val: string | Date) => {
 		if (val == "") {
 			setError((prev: CreatTodoPayloadAttr) => ({
 				...prev,

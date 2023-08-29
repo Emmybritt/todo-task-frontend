@@ -5,14 +5,13 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useTodo } from "../../hooks/useTodo";
 import Button from "../Button";
 
-const TodoCard: React.FC<TodoAttr> = ({ archived, description, dueDate, priority, status, title, _id, createdAt }) => {
+const TodoCard: React.FC<TodoAttr> = ({ description, title, _id }) => {
 	const { deletedTodo } = useTodo();
 	return (
 		<div
 			style={{
 				width: "70%",
 				opacity: 2,
-				backgroundColor: status === "active" ? "green" : "",
 				border: "1px solid grey",
 				padding: 8,
 				borderRadius: 9,

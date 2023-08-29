@@ -46,11 +46,12 @@ export const getTodo = createAsyncThunk("getTodo", async () => {
 	}
 });
 
-export const createTodo = createAsyncThunk("createTodo", async (action: CreatTodoPayloadAttr) => {
+export const createTodo = createAsyncThunk("createTodo", async (action: CreatTodoPayloadAttr, thunkAPI) => {
 	try {
 		const res = await myAxios.post("/create/todo", { ...action });
 		if (res.data.status) {
 			alert("Todo created succesfully");
+			thunkAPI.dispatch(getTodo());
 		}
 		return res.data;
 	} catch (error) {
@@ -67,11 +68,12 @@ export const getTodoById = createAsyncThunk("getTodoById", async (action: string
 	}
 });
 
-export const deleteTodo = createAsyncThunk("deleteTodoById", async (action: string) => {
+export const deleteTodo = createAsyncThunk("deleteTodoById", async (action: string, thunkAPI) => {
 	try {
 		const res = await myAxios.delete(`/delete-todo/${action}`);
 		if (res.data.status) {
 			alert("Todo deleted successfully");
+			thunkAPI.dispatch(getTodo());
 		} else {
 			alert("Todo was not deleted");
 		}
