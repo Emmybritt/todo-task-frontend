@@ -18,6 +18,7 @@ type InputAttr = {
 	onChange?: (e: string) => void;
 	error?: string;
 	dateValue?: Date | null;
+	value?: string;
 };
 
 const Input: FC<InputAttr> = ({
@@ -32,6 +33,7 @@ const Input: FC<InputAttr> = ({
 	onChange = () => {},
 	error,
 	dateValue,
+	value,
 }) => {
 	return (
 		<>
@@ -43,6 +45,7 @@ const Input: FC<InputAttr> = ({
 						placeholder={placeholder}
 						label={label}
 						withAsterisk={withAsterisk}
+						value={value}
 					/>
 				)}
 				{type === "number" && (
@@ -52,6 +55,7 @@ const Input: FC<InputAttr> = ({
 						styles={{ input: { padding: 23 } }}
 						placeholder={placeholder}
 						label={label}
+						value={value}
 						withAsterisk={withAsterisk}
 					/>
 				)}
@@ -63,6 +67,7 @@ const Input: FC<InputAttr> = ({
 						placeholder={placeholder}
 						data={data ?? []}
 						multiple={multitple}
+						value={value}
 					/>
 				)}
 
@@ -74,6 +79,7 @@ const Input: FC<InputAttr> = ({
 						autosize
 						minRows={minRows}
 						maxRows={maxRows}
+						value={value}
 					/>
 				)}
 				{type === "date" && (
@@ -81,8 +87,8 @@ const Input: FC<InputAttr> = ({
 						value={dateValue}
 						onChange={(e) => onChange(e)}
 						styles={{ input: { padding: 23 } }}
-						label="Date input"
-						placeholder="Date input"
+						label={label}
+						placeholder={placeholder}
 					/>
 				)}
 

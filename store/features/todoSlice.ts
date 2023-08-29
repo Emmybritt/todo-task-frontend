@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { myAxios } from "../../src/config/axios";
-type TodoAttr = {
+export type TodoAttr = {
 	_id: string;
 	title: string;
 	description: string;
 	priority: string;
 	status: string;
 	dueDate: string;
-	archived: string;
+	archived: boolean;
 	createdAt: string;
 	updatedAt: string;
 };
